@@ -64,7 +64,7 @@ def email(title1, title2, message1, message2):
     with open(r'path to -> password.txt' , "r") as f:
         password = f.read()
 
-    #"25" is the port for smtp
+    # login and send email
     server = smtplib.SMTP("smtp.gmail.com", 587)
     server.connect("smtp.gmail.com",587)
     server.ehlo()
