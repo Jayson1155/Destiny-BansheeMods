@@ -25,6 +25,9 @@ mod1_discr = ""
 mod2_discr = ""
 textfilepath = r"path to -> content.txt"
 directory = "path to -> imgs/{}"
+#Clear the text file
+g = open(textfilepath, "r+")
+g.truncate(0)
 
 
 def email(title1, title2, message1, message2):
@@ -101,12 +104,14 @@ def get_mods():
 
 
 
-    #EC = Expected Condtitions
+    #Waiting for page to load
     try:
         WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.CLASS_NAME, "vendorCardContainer")))
         attempt = True
     except TimeoutException:
-        print("Page timed out after 20 secs.")
+        g = open(textfilepath , "w+")
+        g.write("Page timed out after 20 secs.")
+        g.close()
         attempt = False
 
 
@@ -114,15 +119,21 @@ def get_mods():
     soup = BeautifulSoup(driver.page_source, 'html.parser')
     driver.quit()
 
-    #filter the page source to be only banshee
+    #"filter" the page source to be only banshee
     page = soup.find_all("div", {"hash":"672118013"})
 
     for p in page:
-        # index 15 and 17
+        # finds the images to the Mods
+        # maybe needs to be changed when Banshee's amount of Mods/items changes
         img1 = p.find_all("img", class_="inventoryItemIcon")[7]["src"]
         img2 = p.find_all("img", class_="inventoryItemIcon")[8]["src"]
-        print(img1)
-        print(img2)
+        
+        # Write url of imgs into "content.txt"
+        # Somehow img1 may not work the way intended
+        g = open(textfilepath , "w+")
+        g.write("\nIMG1: "+img1)
+        g.write("\nIMG2: "+img2)
+        g.close()
 
         #MOD 1
         mod1_name = p.find_all("p", class_="itemTooltip_itemName")[15]
@@ -150,9 +161,12 @@ def get_mods():
         mod2_discr = mod2_name[0]+" : "+mod2_type[0]
 
         mod2 = mod2_name[0] +" "+ mod2_type[0]
-
-        print(mod1)
-        print(mod2)
+        
+        # Writes Mod name into content.txt
+        g = open(textfilepath , "w+")
+        g.write("\nMOD1: "+mod1)
+        g.write("\nMOD2: "+mod2)
+        g.close()
 
 
     #keeps the program running until the driver has no timeout
