@@ -10,7 +10,7 @@ import smtplib
 from email.utils import formatdate
 from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
-import schedule, sys, random
+import schedule
 from time import sleep
 import fake_useragent
 
@@ -23,19 +23,19 @@ img1 = ""
 img2 = ""
 mod1_discr = ""
 mod2_discr = ""
-textfilepath = r"C:\Users\jayso_jxifb84\Documents\programmieren\PYTHON\Learn new stuff\Destiny\content.txt"
-directory = "C:\\Users\\jayso_jxifb84\\Documents\\programmieren\\PYTHON\\Learn new stuff\\Destiny\\imgs\\{}"
+textfilepath = r"path to -> content.txt"
+directory = "path to -> imgs/{}"
 
 
 def email(title1, title2, message1, message2):
 
 
-    FROM = "python.mail2000@gmail.com"
+    FROM = "from"
 
 
     msg = MIMEMultipart("related")
     msg["From"] = FROM
-    msg["To"] = "jayson291104@gmail.com"
+    msg["To"] = "to"
     msg['Date'] = formatdate(localtime=True)
     msg["Subject"] = "Banshee Mods"
     msg.preamble = f"---------------------\nMESSAGE WAS SEND WITH PYTHON\n\n\nMessage"
@@ -58,7 +58,7 @@ def email(title1, title2, message1, message2):
     msg.attach(msgImage1)
 
     #load in the password for the email address
-    with open(r'../Sending Emails/password.txt' , "r") as f:
+    with open(r'path to -> password.txt' , "r") as f:
         password = f.read()
 
     #"25" is the port for smtp
