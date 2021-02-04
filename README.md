@@ -1,5 +1,5 @@
 # Destiny2-BansheeMods
-# Sends Email with the daily Banshee Mods
+# Sends Email with the daily Banshee Mods(Webscrping) 
 
 Changes:
   - Create a file called "content.txt" and add the path to "textfilepath"
