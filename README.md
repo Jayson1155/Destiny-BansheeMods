@@ -1,7 +1,7 @@
 # Destiny2-BansheeMods
 # Sends Email with the daily Banshee Mods(Webscraping) 
 
-Changes:
+Edits need to be made:
   - Create a file called "content.txt" and add the path to "textfilepath"
   - The images of the mods are being downloaded if the file is not there already... Define a path to ".../imgs/{}"
   - Add a "FROM" email address and a "TO" email address
