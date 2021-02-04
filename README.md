@@ -1,4 +1,4 @@
-# Destiny-BansheeMods
+# Destiny2-BansheeMods
 # Sends Email with the daily Banshee Mods
 
 Changes:
