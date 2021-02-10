@@ -125,8 +125,8 @@ def get_mods():
     for p in page:
         # finds the images to the Mods
         # maybe needs to be changed when Banshee's amount of Mods/items changes
-        img1 = p.find_all("img", class_="inventoryItemIcon")[7]["src"]
-        img2 = p.find_all("img", class_="inventoryItemIcon")[8]["src"]
+        img1 = p.find_all("img", class_="inventoryItemIcon")[5]["src"]
+        img2 = p.find_all("img", class_="inventoryItemIcon")[6]["src"]
         
         # Write url of imgs into "content.txt"
         # Somehow img1 may not work the way intended
@@ -136,8 +136,8 @@ def get_mods():
         g.close()
 
         #MOD 1
-        mod1_name = p.find_all("p", class_="itemTooltip_itemName")[15]
-        mod1_type = p.find_all("p", class_="itemTooltip_itemType")[15]
+        mod1_name = p.find_all("p", class_="itemTooltip_itemName")[11]
+        mod1_type = p.find_all("p", class_="itemTooltip_itemType")[11]
         #Getting Text from inbetween the tags
         mod1_name = str(mod1_name).split('<p class="itemTooltip_itemName">')
         mod1_name = mod1_name[1].split('</p>')
@@ -150,8 +150,8 @@ def get_mods():
 
 
         #MOD 2
-        mod2_name = p.find_all("p", class_="itemTooltip_itemName")[17]
-        mod2_type = p.find_all("p", class_="itemTooltip_itemType")[17]
+        mod2_name = p.find_all("p", class_="itemTooltip_itemName")[13]
+        mod2_type = p.find_all("p", class_="itemTooltip_itemType")[13]
         #Getting Text from inbetween the tags
         mod2_name = str(mod2_name).split('<p class="itemTooltip_itemName">')
         mod2_name = mod2_name[1].split('</p>')
